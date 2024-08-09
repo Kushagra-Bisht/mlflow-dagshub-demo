@@ -7,7 +7,12 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-mlflow.set_tracking_uri('http://127.0.0.1:5000')
+mlflow.set_tracking_uri('https://dagshub.com/Kushagra-Bisht/mlflow-dagshub-demo.mlflow')
+
+import dagshub
+dagshub.init(repo_owner='Kushagra-Bisht', repo_name='mlflow-dagshub-demo', mlflow=True)
+
+
 iris = load_iris()
 X = iris.data  # Corrected: removed parentheses
 y = iris.target  # Corrected: removed parentheses
@@ -38,3 +43,4 @@ with mlflow.start_run():  # Corrected: changed to start_run
     
     
     print('accuracy:', accuracy)
+
